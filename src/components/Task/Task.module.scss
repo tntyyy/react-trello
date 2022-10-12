@@ -8,6 +8,8 @@
   border: var(--border);
 
   cursor: pointer;
+  text-decoration: none;
+  color: var(--color-black);
 
   &:hover {
     box-shadow: var(--shadow);
