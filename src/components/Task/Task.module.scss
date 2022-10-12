@@ -5,10 +5,13 @@
   justify-content: space-between;
   align-items: center;
 
-  box-shadow: var(--shadow);
   border: var(--border);
 
   cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--shadow);
+  }
 
   span {
     font-size: var(--fs-small);
