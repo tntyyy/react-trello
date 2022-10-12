@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--color-gray);
+
+  h1 {
+    font-size: var(--fs-big);
+    color: var(--color-purple);
+  }
+
+  button {
+    padding: 10px 40px;
+    background-color: inherit;
+
+    border: var(--border);
+    border-width: 2px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    &:hover {
+      background-color: var(--color-purple);
+      color: var(--color-white);
+      border-color: var(--color-purple);
+    }
+  }
+}

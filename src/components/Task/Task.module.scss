@@ -1,0 +1,36 @@
+.task {
+  padding: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: var(--border);
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--shadow);
+  }
+
+  span {
+    font-size: var(--fs-small);
+  }
+
+  &:hover > .task__buttons button {
+    opacity: 1;
+    transition: var(--transition);
+  }
+
+  button {
+    opacity: 0;
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+
+    &:hover > svg {
+      transition: var(--transition);
+      fill: var(--color-purple);
+    }
+  }
+}
