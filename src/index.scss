@@ -15,9 +15,9 @@ footer, header, hgroup, menu, nav, section {
 // variables
 
 :root {
-  --fs-default: 15px;
-  --fs-big: 24px;
-  --fs-small: 12px;
+  --fs-default: 24px;
+  --fs-big: 36px;
+  --fs-small: 15px;
 
   --color-purple: rgba(101, 52, 255, 1);
   --color-black: #050510;
@@ -43,4 +43,8 @@ body {
   font-size: var(--fs-default);
   color: var(--color-black);
   background: var(--color-white);
+
+  padding: 30px;
+  width: 100vw;
+  height: 100vh;
 }

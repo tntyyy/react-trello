@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styles from './MainPage.module.scss';
+import Header from "@/components/Header/Header";
 
 const MainPage: FC = () => {
   return (
-      <h1>MainPage</h1>
+      <Header />
   );
 };
 
