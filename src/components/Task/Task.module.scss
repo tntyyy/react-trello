@@ -17,7 +17,7 @@
     font-size: var(--fs-small);
   }
 
-  &:hover > button {
+  &:hover > .task__buttons button {
     opacity: 1;
     transition: var(--transition);
   }
