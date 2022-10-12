@@ -5,7 +5,7 @@ const Header: FC = () => {
   return (
       <header className={styles.header}>
           <h1 className={styles.logo}>Trello</h1>
-          <button className={styles.createList}>Create list</button>
+          <button className={styles.createList}>Create board</button>
       </header>
   );
 };
