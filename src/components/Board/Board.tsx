@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Board.module.scss';
+import Task from "@/components/Task/Task";
 
 const Board: FC = () => {
   return (
@@ -44,9 +45,9 @@ const Board: FC = () => {
               </div>
           </div>
           <div className={styles.board__content}>
-              <div>task!</div>
-              <div>task!</div>
-              <div>task!</div>
+              <Task />
+              <Task />
+              <Task />
           </div>
       </div>
   );
