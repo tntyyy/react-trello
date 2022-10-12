@@ -14,7 +14,9 @@ const Popup: FC = () => {
         return (
             <div className={styles.popup}>
                 <div className={styles.popup__content}>
-                    <h1>POPUP!</h1>
+                    <input className={styles.popup__input} type="text" defaultValue={"name of task"}/>
+                    <textarea className={styles.popup__input} placeholder={"Enter description..."} defaultValue={"description of task"}></textarea>
+                    <button>Update task</button>
                 </div>
             </div>
         );
