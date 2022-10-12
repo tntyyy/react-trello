@@ -1,3 +1,46 @@
-h1 {
-  color: red;
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,  a, img, ol, ul, li, form, footer, header, nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+// css reset end
+
+// variables
+
+:root {
+  --fs-default: 15px;
+  --fs-big: 24px;
+  --fs-small: 12px;
+
+  --color-purple: rgba(101, 52, 255, 1);
+  --color-black: #050510;
+  --color-gray: #F7F7F8;
+  --color-white: #FFFFFF;
+
+  --radius: 10px;
+  --shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  --transition: all .1s ease-in-out;
+  --border:  1px solid #DFE5EC;
+}
+
+// variables
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-default);
+  color: var(--color-black);
+  background: var(--color-white);
 }
