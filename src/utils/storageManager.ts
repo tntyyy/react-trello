@@ -23,19 +23,37 @@ class storageManager extends Storage<Locals> {
     }
 
     public getTasks() {
-        return this.get(Locals.TASKS);
+        const data = this.get(Locals.TASKS);
+        if (data) {
+            return JSON.parse(data);
+        }
+        return data;
     }
 
     public getBoards() {
-        return this.get(Locals.BOARDS);
+        const data = this.get(Locals.BOARDS);
+        if (data) {
+            return JSON.parse(data);
+        }
+        return data;
     }
 
     public setTask(task: ITask) {
-        this.set(Locals.TASKS, JSON.stringify(task));
+        let data = this.getTasks();
+        if (!data) {
+            data = [];
+        }
+        data.push(task);
+        this.set(Locals.TASKS, JSON.stringify(data));
     }
 
     public setBoard(board: IBoard) {
-        this.set(Locals.BOARDS, JSON.stringify(board));
+        let data = this.getBoards();
+        if (!data) {
+            data = [];
+        }
+        data.push(board);
+        this.set(Locals.BOARDS, JSON.stringify(data));
     }
 
     public clear() {
