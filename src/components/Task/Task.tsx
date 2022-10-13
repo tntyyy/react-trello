@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styles from './Task.module.scss';
+import {Link} from "react-router-dom";
 
 const Task: FC = () => {
   return (
-      <div className={styles.task}>
+      <Link to={`/task/${1}`} className={styles.task}>
           <span className={styles.task__title}>default name</span>
           <div className={styles.task__buttons}>
               <button>
@@ -34,7 +35,7 @@ const Task: FC = () => {
                   </svg>
               </button>
           </div>
-      </div>
+      </Link>
   );
 };
 
