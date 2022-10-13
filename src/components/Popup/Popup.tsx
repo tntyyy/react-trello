@@ -12,8 +12,8 @@ const Popup: FC = () => {
 
     if (isOpen) {
         return (
-            <div className={styles.popup}>
-                <div className={styles.popup__content}>
+            <div className={styles.popup} onClick={() => setIsOpen(false)}>
+                <div className={styles.popup__content} onClick={(e) => e.stopPropagation()}>
                     <input className={styles.popup__input} type="text" defaultValue={"name of task"}/>
                     <textarea className={styles.popup__input} placeholder={"Enter description..."} defaultValue={"description of task"}></textarea>
                     <button>Update task</button>
@@ -23,7 +23,7 @@ const Popup: FC = () => {
     }
 
 
-    return null;
+    return <></>;
 };
 
 export default Popup;
