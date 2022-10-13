@@ -20,10 +20,39 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
         })
     }
 
+    const saveEditingName = (event:  React.FocusEvent<HTMLHeadingElement, Element>) => {
+        const newBoards = boards.map((board) => {
+            if (board.id === id) {
+                return {
+                    ...board,
+                    board: {
+                        ...board,
+                        name: event.target.textContent
+                    }
+                }
+            }
+            return board;
+        });
+
+        setBoards(newBoards);
+
+        storage.clear();
+        boards.forEach((board) => {
+            storage.setBoard(board);
+        });
+    }
+
     return (
       <div className={styles.board}>
           <div className={styles.board__header}>
-              <h3 className={styles.board__name}>{name}</h3>
+              <h3
+                  className={styles.board__name}
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                  onBlur={(event) => saveEditingName(event)}
+              >
+                  {name}
+              </h3>
               <div className={styles.board__buttons}>
                   <button
                     onClick={() => deleteBoard()}
