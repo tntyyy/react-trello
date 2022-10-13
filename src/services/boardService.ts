@@ -23,12 +23,12 @@ class BoardService {
         return boardsCopy;
     }
 
-    public saveEditingName(event: React.FocusEvent<HTMLHeadingElement, Element>, id: string): IBoard[] {
+    public saveEditingName(id: string, text: string): IBoard[] {
         return this.boards.map((board: IBoard) => {
             if (board.id === id) {
                 return {
                     ...board,
-                    name: event.target.textContent!
+                    name: text
                 }
             }
             return board;

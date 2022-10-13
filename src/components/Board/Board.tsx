@@ -17,7 +17,7 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
     }
 
     const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement, Element>) => {
-        const newBoards: IBoard[] = boardService.saveEditingName(event, id);
+        const newBoards: IBoard[] = boardService.saveEditingName(id, event.target.textContent!);
         setBoards(newBoards);
 
         storage.clear();
@@ -86,3 +86,8 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
 };
 
 export default Board;
+
+const a = false;
+const b = 5;
+
+console.log(a && b);
