@@ -16,24 +16,12 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
         setBoards(newBoards);
     }
 
-    const saveEditingName = (event:  React.FocusEvent<HTMLHeadingElement, Element>) => {
-        const newBoards = boards.map((board) => {
-            if (board.id === id) {
-                return {
-                    ...board,
-                    board: {
-                        ...board,
-                        name: event.target.textContent
-                    }
-                }
-            }
-            return board;
-        });
-
+    const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement, Element>) => {
+        const newBoards: IBoard[] = boardService.saveEditingName(event, id);
         setBoards(newBoards);
 
         storage.clear();
-        boards.forEach((board) => {
+        newBoards.forEach((board) => {
             storage.setBoard(board);
         });
     }
@@ -45,7 +33,7 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
                   className={styles.board__name}
                   contentEditable={true}
                   suppressContentEditableWarning={true}
-                  onBlur={(event) => saveEditingName(event)}
+                  onBlur={(event) => saveEditingBoard(event)}
               >
                   {name}
               </h3>

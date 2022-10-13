@@ -23,8 +23,16 @@ class BoardService {
         return boardsCopy;
     }
 
-    public saveEditingName(event: React.FocusEvent<HTMLHeadingElement, Element>) {
-
+    public saveEditingName(event: React.FocusEvent<HTMLHeadingElement, Element>, id: string): IBoard[] {
+        return this.boards.map((board: IBoard) => {
+            if (board.id === id) {
+                return {
+                    ...board,
+                    name: event.target.textContent!
+                }
+            }
+            return board;
+        });
     }
 }
 
