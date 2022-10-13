@@ -3,12 +3,10 @@ import styles from './Board.module.scss';
 import Task from "@/components/Task/Task";
 import {IBoard} from "@/types/board";
 import {BoardsContext} from "@/context/boardsContext";
-import storageManager from "@/utils/storageManager";
 import BoardService from "@/services/boardService";
 
 const Board: FC<IBoard> = ({id, name, tasks}) => {
     const {boards, setBoards} = useContext(BoardsContext);
-    const storage = storageManager.getInstance();
     const boardService = new BoardService(boards);
 
     const deleteBoard = () => {
@@ -19,11 +17,6 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
     const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement, Element>) => {
         const newBoards: IBoard[] = boardService.saveEditingName(id, event.target.textContent!);
         setBoards(newBoards);
-
-        storage.clear();
-        newBoards.forEach((board) => {
-            storage.setBoard(board);
-        });
     }
 
     return (

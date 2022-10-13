@@ -1,6 +1,7 @@
 import storageManager from "@/utils/storageManager";
 import {IBoard} from "@/types/board";
-import React from "react";
+
+const storage = storageManager.getInstance();
 
 class BoardService {
     private boards: IBoard[];
@@ -10,8 +11,6 @@ class BoardService {
     }
 
     public deleteBoard(id: string) {
-        const storage = storageManager.getInstance();
-
         const boardsCopy = this.boards.filter(item => item.id !== id);
 
         storage.clear();
@@ -24,7 +23,7 @@ class BoardService {
     }
 
     public saveEditingName(id: string, text: string): IBoard[] {
-        return this.boards.map((board: IBoard) => {
+        const newBoards = this.boards.map((board: IBoard) => {
             if (board.id === id) {
                 return {
                     ...board,
@@ -33,6 +32,13 @@ class BoardService {
             }
             return board;
         });
+
+        storage.clear();
+        newBoards.forEach((board) => {
+            storage.setBoard(board);
+        });
+
+        return newBoards;
     }
 }
 
