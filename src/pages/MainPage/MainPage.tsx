@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from './MainPage.module.scss';
 import Header from "@/components/Header/Header";
 import Board from "@/components/Board/Board";
@@ -10,12 +10,13 @@ import {IBoard} from "@/types/board";
 const MainPage: FC = () => {
     const storage = storageManager.getInstance();
     const [boards, setBoards] = useState<IBoard[]>(storage.getBoards());
-    const [tasks, setTasks] = useState<ITask[]>(storage.getTasks());
+    // const [tasks, setTasks] = useState<ITask[]>(storage.getTasks());
+
 
   return (
       <>
         <Popup />
-        <Header />
+        <Header storage={storage}/>
         <div className={styles.content}>
             {
                 boards
@@ -24,7 +25,7 @@ const MainPage: FC = () => {
                     <Board
                         id={board.id}
                         name={board.name}
-                        tasks={tasks.filter(item => item.boardId === board.id)}
+                        tasks={board.tasks}
                     />
                 )
             }
