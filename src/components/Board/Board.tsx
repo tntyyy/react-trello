@@ -4,20 +4,16 @@ import Task from "@/components/Task/Task";
 import {IBoard} from "@/types/board";
 import {BoardsContext} from "@/context/boardsContext";
 import storageManager from "@/utils/storageManager";
+import BoardService from "@/services/boardService";
 
 const Board: FC<IBoard> = ({id, name, tasks}) => {
     const {boards, setBoards} = useContext(BoardsContext);
     const storage = storageManager.getInstance();
+    const boardService = new BoardService(boards);
 
     const deleteBoard = () => {
-        const boardsCopy = boards.filter(item => item.id !== id);
-        setBoards(boardsCopy);
-
-        storage.clear();
-
-        boardsCopy.forEach((board) => {
-            storage.setBoard(board);
-        })
+        const newBoards = boardService.deleteBoard(id);
+        setBoards(newBoards);
     }
 
     const saveEditingName = (event:  React.FocusEvent<HTMLHeadingElement, Element>) => {
