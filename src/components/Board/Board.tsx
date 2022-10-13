@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import styles from './Board.module.scss';
 import Task from "@/components/Task/Task";
+import {IBoard} from "@/types/board";
 
-const Board: FC = () => {
+const Board: FC<IBoard> = ({name, tasks}) => {
   return (
       <div className={styles.board}>
           <div className={styles.board__header}>
-              <h3 className={styles.board__name}>Doing</h3>
+              <h3 className={styles.board__name}>{name}</h3>
               <div className={styles.board__buttons}>
                   <button>
                       <svg
