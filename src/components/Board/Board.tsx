@@ -1,15 +1,33 @@
-import React, { FC } from 'react';
+import React, {FC, useContext} from 'react';
 import styles from './Board.module.scss';
 import Task from "@/components/Task/Task";
 import {IBoard} from "@/types/board";
+import {BoardsContext} from "@/context/boardsContext";
+import storageManager from "@/utils/storageManager";
 
-const Board: FC<IBoard> = ({name, tasks}) => {
-  return (
+const Board: FC<IBoard> = ({id, name, tasks}) => {
+    const {boards, setBoards} = useContext(BoardsContext);
+    const storage = storageManager.getInstance();
+
+    const deleteBoard = () => {
+        const boardsCopy = boards.filter(item => item.id !== id);
+        setBoards(boardsCopy);
+
+        storage.clear();
+
+        boardsCopy.forEach((board) => {
+            storage.setBoard(board);
+        })
+    }
+
+    return (
       <div className={styles.board}>
           <div className={styles.board__header}>
               <h3 className={styles.board__name}>{name}</h3>
               <div className={styles.board__buttons}>
-                  <button>
+                  <button
+                    onClick={() => deleteBoard()}
+                  >
                       <svg
                           fill="rgba(55, 53, 47, 0.85)"
                           className="trash"

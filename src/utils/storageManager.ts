@@ -57,7 +57,7 @@ class storageManager extends Storage<Locals> {
     }
 
     public clear() {
-        this.clearItems([Locals.BOARDS, Locals.TASKS]);
+        this.clearItems([Locals.BOARDS]);
     }
 }
 
