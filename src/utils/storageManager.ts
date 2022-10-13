@@ -27,7 +27,7 @@ class storageManager extends Storage<Locals> {
         if (data) {
             return JSON.parse(data);
         }
-        return data;
+        return [];
     }
 
     public getBoards() {
@@ -35,7 +35,7 @@ class storageManager extends Storage<Locals> {
         if (data) {
             return JSON.parse(data);
         }
-        return data;
+        return [];
     }
 
     public setTask(task: ITask) {
