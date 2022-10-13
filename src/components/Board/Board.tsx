@@ -1,15 +1,39 @@
-import React, { FC } from 'react';
+import React, {FC, useContext} from 'react';
 import styles from './Board.module.scss';
 import Task from "@/components/Task/Task";
 import {IBoard} from "@/types/board";
+import {BoardsContext} from "@/context/boardsContext";
+import BoardService from "@/services/boardService";
 
-const Board: FC<IBoard> = ({name, tasks}) => {
-  return (
+const Board: FC<IBoard> = ({id, name, tasks}) => {
+    const {boards, setBoards} = useContext(BoardsContext);
+    const boardService = new BoardService(boards);
+
+    const deleteBoard = () => {
+        const newBoards = boardService.deleteBoard(id);
+        setBoards(newBoards);
+    }
+
+    const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement>) => {
+        const newBoards: IBoard[] = boardService.saveEditingName(id, event.target.textContent!);
+        setBoards(newBoards);
+    }
+
+    return (
       <div className={styles.board}>
           <div className={styles.board__header}>
-              <h3 className={styles.board__name}>{name}</h3>
+              <h3
+                  className={styles.board__name}
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                  onBlur={(event) => saveEditingBoard(event)}
+              >
+                  {name}
+              </h3>
               <div className={styles.board__buttons}>
-                  <button>
+                  <button
+                    onClick={() => deleteBoard()}
+                  >
                       <svg
                           fill="rgba(55, 53, 47, 0.85)"
                           className="trash"
@@ -55,3 +79,8 @@ const Board: FC<IBoard> = ({name, tasks}) => {
 };
 
 export default Board;
+
+const a = false;
+const b = 5;
+
+console.log(a && b);
