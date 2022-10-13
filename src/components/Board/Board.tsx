@@ -14,7 +14,7 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
         setBoards(newBoards);
     }
 
-    const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement, Element>) => {
+    const saveEditingBoard = (event: React.FocusEvent<HTMLHeadingElement>) => {
         const newBoards: IBoard[] = boardService.saveEditingName(id, event.target.textContent!);
         setBoards(newBoards);
     }
