@@ -15,7 +15,6 @@ const EditPopup: FC = () => {
 
     const {boards, setBoards} = useContext(BoardsContext);
     const taskService = new TaskService(boards);
-
     const initFieldsState = {
         name: "",
         description: ""

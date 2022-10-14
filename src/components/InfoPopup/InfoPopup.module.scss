@@ -13,6 +13,7 @@
 
   &__content {
     width: 450px;
+    min-height: 300px;
     padding: 40px 30px;
     background-color: var(--color-white);
 
@@ -20,5 +21,58 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+
+    p {
+      font-size: var(--fs-small);
+    }
+  }
+
+  &__header {
+    width: 100%;
+
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+
+    h3 {
+      font-size: var(--fs-big);
+      color: var(--color-purple);
+    }
   }
 }
+
+.close {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+
+  border: none;
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+
+  transition: var(--transition);
+
+  &:hover {
+    opacity: 1
+  }
+
+  &:before, &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: var(--color-purple);
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+

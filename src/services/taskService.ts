@@ -32,6 +32,22 @@ class TaskService {
         return boardsCopy;
     }
 
+    public getOneTask(id: string, boardId: string) {
+        const board = this.boards.find((board: IBoard) => {
+            if (board.id === boardId) {
+                return board;
+            }
+        });
+
+        if (board) {
+            return board.tasks.find((task: ITask) => {
+                if (task.id === id) {
+                    return task;
+                }
+            });
+        }
+    }
+
     public editTask(id: string, boardId: string, name: string, description: string) {
         const boardsCopy = this.boards.map((board: IBoard) => {
             if (board.id === boardId) {
