@@ -43,6 +43,15 @@
       min-height: 150px;
     }
 
+    .disabled {
+      &:hover {
+        background-color: inherit;
+        border: var(--border);
+        border-width: 2px;
+        color: #1010104D;
+      }
+    }
+
     button {
       padding: 10px 40px;
       background-color: inherit;
