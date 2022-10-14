@@ -1,18 +1,20 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
-import styles from './Popup.module.scss';
-import {useParams, useNavigate} from "react-router-dom";
+import styles from './EditPopup.module.scss';
+import {useParams, useNavigate, useLocation} from "react-router-dom";
 import {BoardsContext} from "@/context/boardsContext";
 import TaskService from "@/services/taskService";
-import {IField, ITask} from "@/types/task";
+import {IField} from "@/types/task";
+import {isMatchUrlEndpoint} from "@/utils/isMatchUrlEndpoint";
+import {PopupEndpoints} from "@/types/popups";
 
-const Popup: FC = () => {
+const EditPopup: FC = () => {
     const params = useParams();
+    const {pathname} = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const {boards, setBoards} = useContext(BoardsContext);
     const taskService = new TaskService(boards);
-
     const initFieldsState = {
         name: "",
         description: ""
@@ -21,7 +23,7 @@ const Popup: FC = () => {
     const [fields, setFields] = useState<IField>(initFieldsState);
 
     useEffect(() => {
-        setIsOpen(Boolean(params.id));
+        setIsOpen(isMatchUrlEndpoint(pathname, PopupEndpoints.EDIT));
     }, [params]);
 
     const handleClosePopup = () => {
@@ -76,4 +78,4 @@ const Popup: FC = () => {
     return <></>;
 };
 
-export default Popup;
+export default EditPopup;

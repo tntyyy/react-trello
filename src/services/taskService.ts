@@ -1,8 +1,7 @@
 import {IBoard} from "@/types/board";
 import {ITask} from "@/types/task";
-import storageManager from "@/utils/storageManager";
+import storage from "@/utils/storageManager";
 
-const storage = storageManager.getInstance();
 
 class TaskService {
     private boards: IBoard[];
@@ -32,6 +31,22 @@ class TaskService {
         return boardsCopy;
     }
 
+    public getOneTask(id: string, boardId: string) {
+        const board = this.boards.find((board: IBoard) => {
+            if (board.id === boardId) {
+                return board;
+            }
+        });
+
+        if (board) {
+            return board.tasks.find((task: ITask) => {
+                if (task.id === id) {
+                    return task;
+                }
+            });
+        }
+    }
+
     public editTask(id: string, boardId: string, name: string, description: string) {
         const boardsCopy = this.boards.map((board: IBoard) => {
             if (board.id === boardId) {
@@ -41,7 +56,7 @@ class TaskService {
                         if (task.id === id) {
                             return {
                                 ...task,
-                                name: description,
+                                name: name,
                                 description: description
                             }
                         }

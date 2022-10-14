@@ -5,26 +5,28 @@ interface IStorage {
     clear(): void;
 }
 
-export default abstract class Storage<T extends string> {
+class Storage<T extends string> {
     private readonly storage: IStorage;
 
     public constructor(getStorage = (): IStorage => window.localStorage) {
         this.storage = getStorage();
     }
 
-    protected get(key: T): string | null {
+    public get(key: T): string | null {
         return this.storage.getItem(key);
     }
 
-    protected set(key: T, value: string): void {
+    public set(key: T, value: string): void {
         this.storage.setItem(key, value);
     }
 
-    protected clearItem(key: T): void {
+    public clear(key: T): void {
         this.storage.removeItem(key);
     }
 
-    protected clearItems(keys: T[]): void {
-        keys.forEach((key) => this.clearItem(key));
+    public clearAll(keys: T[]): void {
+        keys.forEach((key) => this.clear(key));
     }
 }
+
+export default new Storage();
