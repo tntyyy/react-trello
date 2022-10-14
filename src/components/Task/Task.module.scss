@@ -24,6 +24,23 @@
     transition: var(--transition);
   }
 
+  &:hover > .task__buttons a {
+    opacity: 1;
+    transition: var(--transition);
+  }
+
+  a {
+    opacity: 0;
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+
+    &:hover > svg {
+      transition: var(--transition);
+      fill: var(--color-purple);
+    }
+  }
+
   button {
     opacity: 0;
     background-color: inherit;
