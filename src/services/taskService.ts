@@ -43,9 +43,7 @@ class TaskService {
                 })
             }
         });
-        if (oneTask) {
-            return oneTask;
-        }
+        return oneTask;
     }
 
     public editTask(id: string, boardId: string) {
