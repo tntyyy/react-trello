@@ -12,16 +12,15 @@ class TaskService {
     }
 
     public deleteTask(id: string, boardId: string) {
-        const boardsCopy = this.boards.filter((board: IBoard) => {
+        const boardsCopy = this.boards.map((board: IBoard) => {
             if (board.id === boardId) {
-                board.tasks.filter((task: ITask) => {
-                    if (task.id === id) {
-                        return false;
-                    }
-                    return task;
-                })
+                return {
+                    ...board,
+                    tasks: board.tasks.filter((task: ITask) => task.id !== id)
+                }
+            } else {
+                return board;
             }
-            return board;
         })
 
         storage.clear();
