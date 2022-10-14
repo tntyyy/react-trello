@@ -2,15 +2,17 @@ import React, {FC, useContext} from 'react';
 import styles from './MainPage.module.scss';
 import Header from "@/components/Header/Header";
 import Board from "@/components/Board/Board";
-import Popup from "@/components/EditPopup/EditPopup";
 import {BoardsContext} from "@/context/boardsContext";
+import InfoPopup from "@/components/InfoPopup/InfoPopup";
+import EditPopup from "@/components/EditPopup/EditPopup";
 
 const MainPage: FC = () => {
     const {boards} = useContext(BoardsContext);
 
     return (
       <>
-        <Popup />
+        <InfoPopup />
+        <EditPopup />
         <Header/>
         <div className={styles.content}>
             {

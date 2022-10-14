@@ -1,12 +1,15 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
 import styles from './EditPopup.module.scss';
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, useLocation} from "react-router-dom";
 import {BoardsContext} from "@/context/boardsContext";
 import TaskService from "@/services/taskService";
 import {IField} from "@/types/task";
+import {isMatchUrlEndpoint} from "@/utils/isMatchUrlEndpoint";
+import {PopupEndpoints} from "@/types/popups";
 
 const EditPopup: FC = () => {
     const params = useParams();
+    const {pathname} = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -21,7 +24,7 @@ const EditPopup: FC = () => {
     const [fields, setFields] = useState<IField>(initFieldsState);
 
     useEffect(() => {
-        setIsOpen(Boolean(params.id));
+        setIsOpen(isMatchUrlEndpoint(pathname, PopupEndpoints.EDIT));
     }, [params]);
 
     const handleClosePopup = () => {

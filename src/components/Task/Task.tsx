@@ -16,7 +16,7 @@ const Task: FC<ITask> = ({id, name, description, boardId}) => {
     }
 
     return (
-      <div className={styles.task}>
+      <Link to={`/task/${boardId}/${id}`} className={styles.task}>
           <span className={styles.task__title}>{name}</span>
           <div className={styles.task__buttons}>
               <Link to={`/edit/${boardId}/${id}`}>
@@ -49,7 +49,7 @@ const Task: FC<ITask> = ({id, name, description, boardId}) => {
                   </svg>
               </button>
           </div>
-      </div>
+      </Link>
   );
 };
 
