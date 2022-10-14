@@ -41,7 +41,7 @@ class TaskService {
                         if (task.id === id) {
                             return {
                                 ...task,
-                                name: description,
+                                name: name,
                                 description: description
                             }
                         }

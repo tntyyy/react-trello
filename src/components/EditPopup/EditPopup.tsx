@@ -1,11 +1,11 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
-import styles from './Popup.module.scss';
+import styles from './EditPopup.module.scss';
 import {useParams, useNavigate} from "react-router-dom";
 import {BoardsContext} from "@/context/boardsContext";
 import TaskService from "@/services/taskService";
-import {IField, ITask} from "@/types/task";
+import {IField} from "@/types/task";
 
-const Popup: FC = () => {
+const EditPopup: FC = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -76,4 +76,4 @@ const Popup: FC = () => {
     return <></>;
 };
 
-export default Popup;
+export default EditPopup;

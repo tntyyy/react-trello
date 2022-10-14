@@ -1,7 +1,7 @@
 import React from "react";
 import {useRoutes} from "react-router-dom";
 import MainPage from "@/pages/MainPage/MainPage";
-import Popup from "@/components/Popup/Popup";
+import EditPopup from "@/components/EditPopup/EditPopup";
 
 const AppRoutes = () => useRoutes([
     {
@@ -10,7 +10,7 @@ const AppRoutes = () => useRoutes([
         children: [
             {
                 path: "/edit/:boardId/:id",
-                element: <Popup />
+                element: <EditPopup />
             }
         ]
     }
