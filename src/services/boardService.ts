@@ -1,8 +1,6 @@
-import storageManager from "@/utils/storageManager";
 import {IBoard} from "@/types/board";
 import {v4 as uuidv4} from "uuid";
-
-const storage = storageManager.getInstance();
+import storage from "@/utils/storageManager";
 
 class BoardService {
     private boards: IBoard[];

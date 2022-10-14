@@ -1,8 +1,7 @@
 import {IBoard} from "@/types/board";
 import {ITask} from "@/types/task";
-import storageManager from "@/utils/storageManager";
+import storage from "@/utils/storageManager";
 
-const storage = storageManager.getInstance();
 
 class TaskService {
     private boards: IBoard[];

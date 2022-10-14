@@ -2,12 +2,11 @@ import React, {FC, useContext} from 'react';
 import styles from './Header.module.scss';
 import {IBoard} from "@/types/board";
 import {v4 as uuidv4} from "uuid";
-import storageManager from "@/utils/storageManager";
 import {BoardsContext} from "@/context/boardsContext";
+import storage from "@/utils/storageManager";
 
 
 const Header: FC = () => {
-    const storage = storageManager.getInstance();
     const {setBoards} = useContext(BoardsContext);
 
     const createNewBoard = () => {

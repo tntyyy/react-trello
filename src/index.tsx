@@ -5,11 +5,10 @@ import AppRoutes from "@/routes";
 import {BrowserRouter} from "react-router-dom";
 import {BoardsContext} from "@/context/boardsContext";
 import {IBoard} from "@/types/board";
-import storageManager from "@/utils/storageManager";
+import storage from "@/utils/storageManager";
+
 
 const root = createRoot(document.getElementById('root')!);
-
-const storage = storageManager.getInstance();
 
 const App = () => {
     const [boards, setBoards] = useState<IBoard[]>(storage.getBoards());
