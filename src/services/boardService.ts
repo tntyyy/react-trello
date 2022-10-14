@@ -1,5 +1,6 @@
 import storageManager from "@/utils/storageManager";
 import {IBoard} from "@/types/board";
+import {v4 as uuidv4} from "uuid";
 
 const storage = storageManager.getInstance();
 
@@ -28,6 +29,32 @@ class BoardService {
                 return {
                     ...board,
                     name: text
+                }
+            }
+            return board;
+        });
+
+        storage.clear();
+        newBoards.forEach((board) => {
+            storage.setBoard(board);
+        });
+
+        return newBoards;
+    }
+
+    public createTask(id: string) {
+        const newBoards = this.boards.map((board: IBoard) => {
+            if (board.id === id) {
+                return {
+                    ...board,
+                    tasks: [
+                        ...board.tasks,
+                        {
+                            id: uuidv4(),
+                            name: "default task",
+                            description: ""
+                        }
+                    ]
                 }
             }
             return board;

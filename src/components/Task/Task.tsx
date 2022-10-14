@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import styles from './Task.module.scss';
 import {Link} from "react-router-dom";
+import {ITask} from "@/types/task";
 
-const Task: FC = () => {
+const Task: FC<ITask> = ({id, name, description}) => {
   return (
-      <Link to={`/task/${1}`} className={styles.task}>
-          <span className={styles.task__title}>default name</span>
+      <Link to={`/task/${id}`} className={styles.task}>
+          <span className={styles.task__title}>{name}</span>
           <div className={styles.task__buttons}>
               <button>
                   <svg
