@@ -13,10 +13,12 @@ const Popup: FC = () => {
     const {boards, setBoards} = useContext(BoardsContext);
     const taskService = new TaskService(boards);
 
-    const [fields, setFields] = useState<IField>({
+    const initFieldsState = {
         name: "",
         description: ""
-    });
+    }
+
+    const [fields, setFields] = useState<IField>(initFieldsState);
 
     useEffect(() => {
         setIsOpen(Boolean(params.id));
@@ -35,8 +37,10 @@ const Popup: FC = () => {
     }
 
     const handleSubmit = () => {
-        // const boardsCopy = editTask(params.id!, params.boardId!);
-        console.log(fields);
+        const boardsCopy = taskService.editTask(params.id!, params.boardId!, fields.name, fields.description);
+        setBoards(boardsCopy);
+        setFields(initFieldsState);
+        handleClosePopup();
     }
 
     if (isOpen) {
@@ -57,7 +61,9 @@ const Popup: FC = () => {
                         placeholder={"edit description..."}
                     ></textarea>
                     <button
+                        className={!(fields.name && fields.description) ? styles.disabled : ''}
                         onClick={() => handleSubmit()}
+                        disabled={!(fields.name && fields.description)}
                     >
                         Update task
                     </button>
