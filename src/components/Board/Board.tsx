@@ -83,6 +83,7 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
                           id={task.id}
                           name={task.name}
                           description={task.description}
+                          boardId={task.boardId}
                           key={task.id}
                       />
                 ))
@@ -93,8 +94,3 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
 };
 
 export default Board;
-
-const a = false;
-const b = 5;
-
-console.log(a && b);

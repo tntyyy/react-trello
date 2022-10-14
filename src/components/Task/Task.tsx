@@ -3,7 +3,7 @@ import styles from './Task.module.scss';
 import {Link} from "react-router-dom";
 import {ITask} from "@/types/task";
 
-const Task: FC<ITask> = ({id, name, description}) => {
+const Task: FC<ITask> = ({id, name, description, boardId}) => {
   return (
       <Link to={`/task/${id}`} className={styles.task}>
           <span className={styles.task__title}>{name}</span>

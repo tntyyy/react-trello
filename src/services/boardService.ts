@@ -52,7 +52,8 @@ class BoardService {
                         {
                             id: uuidv4(),
                             name: "default task",
-                            description: ""
+                            description: "",
+                            boardId: board.id
                         }
                     ]
                 }
