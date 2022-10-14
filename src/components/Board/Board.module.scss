@@ -1,4 +1,5 @@
 .board {
+  margin-top: 20px;
   width: 19%;
 
   display: flex;
@@ -7,6 +8,8 @@
 
   padding: 15px;
   box-shadow: var(--shadow);
+  min-height: 500px;
+  max-height: 500px;
 }
 
 .board__header {
@@ -43,4 +46,5 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
 }
