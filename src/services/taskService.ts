@@ -31,6 +31,12 @@ class TaskService {
 
         return boardsCopy;
     }
+
+    public editTask(id: string) {
+        const boardsCopy = this.boards.map((board: IBoard) => {
+            return board;
+        })
+    }
 }
 
 export default TaskService;

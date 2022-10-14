@@ -9,7 +9,7 @@ const AppRoutes = () => useRoutes([
         element: <MainPage/>,
         children: [
             {
-                path: "/task/:id",
+                path: "/task/:boardId/:id",
                 element: <Popup />
             }
         ]
