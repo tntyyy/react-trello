@@ -3,7 +3,6 @@ import {ITask} from "@/types/task";
 import {IBoard} from "@/types/board";
 
 enum Locals {
-    TASKS = "tasks",
     BOARDS = "boards"
 }
 
@@ -22,29 +21,12 @@ class storageManager extends Storage<Locals> {
         return this.instance;
     }
 
-    public getTasks() {
-        const data = this.get(Locals.TASKS);
-        if (data) {
-            return JSON.parse(data);
-        }
-        return [];
-    }
-
     public getBoards() {
         const data = this.get(Locals.BOARDS);
         if (data) {
             return JSON.parse(data);
         }
         return [];
-    }
-
-    public setTask(task: ITask) {
-        let data = this.getTasks();
-        if (!data) {
-            data = [];
-        }
-        data.push(task);
-        this.set(Locals.TASKS, JSON.stringify(data));
     }
 
     public setBoard(board: IBoard) {
