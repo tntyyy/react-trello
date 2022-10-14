@@ -19,7 +19,7 @@ const Task: FC<ITask> = ({id, name, description, boardId}) => {
       <div className={styles.task}>
           <span className={styles.task__title}>{name}</span>
           <div className={styles.task__buttons}>
-              <Link to={`/task/${boardId}/${id}`}>
+              <Link to={`/edit/${boardId}/${id}`}>
                   <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
