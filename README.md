@@ -15,6 +15,10 @@ npm i && npm run dev
 
 #
 
-![Common view](https://i.yapx.ru/URjQf.jpg)
-![One task](https://i.yapx.ru/URjQr.jpg)
-![Create task](https://i.yapx.ru/URjQn.jpg)
+![Common view](https://i.ibb.co/64hf3bF/image-2022-10-14-18-16-32.jpg)
+![One task](https://ibb.co/19VwDKT)
+![Create task](https://i.ibb.co/V3TSSyS/image-2022-10-14-18-16-25.jpg)
+
+https://ibb.co/19VwDKT
+https://ibb.co/MS3JRC9
+https://ibb.co/stqwwSw
