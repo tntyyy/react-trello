@@ -4,3 +4,8 @@ export interface ITask {
     description: string;
     boardId: string;
 }
+
+export interface IField {
+    name: string;
+    description: string;
+}

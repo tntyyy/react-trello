@@ -32,10 +32,37 @@ class TaskService {
         return boardsCopy;
     }
 
-    public editTask(id: string) {
+    public getOneTask(id: string, boardId: string) {
+        let oneTask = null;
+        this.boards.forEach((board: IBoard) => {
+            if (board.id === boardId) {
+                board.tasks.forEach((task: ITask) => {
+                    if (task.id === id) {
+                        oneTask = task;
+                    }
+                })
+            }
+        });
+        if (oneTask) {
+            return oneTask;
+        }
+    }
+
+    public editTask(id: string, boardId: string) {
         const boardsCopy = this.boards.map((board: IBoard) => {
-            return board;
+            return board.tasks.map((task: ITask) => {
+                if (task.id === id) {
+                    return {
+                        ...task,
+                        name: "new name"
+                    }
+                }
+                return task;
+            });
         })
+
+
+        return boardsCopy;
     }
 }
 
