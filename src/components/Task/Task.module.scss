@@ -3,13 +3,18 @@
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   border: var(--border);
 
   cursor: pointer;
   text-decoration: none;
   color: var(--color-black);
+
+  &__title {
+    width: 200px;
+    line-height: 1.5;
+  }
 
   &:hover {
     box-shadow: var(--shadow);

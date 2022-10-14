@@ -3,6 +3,11 @@ module.exports = {
     "parserOptions": {
         "requireConfigFile": false,
     },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "env": {
         "es6": true,
         "browser": true,
