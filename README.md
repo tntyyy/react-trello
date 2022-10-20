@@ -1,20 +1,27 @@
-# Start App:
+# Webpack React Typescript
 
-npm i && npm run dev
+This project is to be used to get started with react typescrpt without CRA to allow more flexibilty by modifying webpack config
 
-# How to use:
+## Geting started
 
-1. Create a board using the button "Create board" in header.
-2. Rename the board by double-clicking on the name.
-3. Create a task using the plus icon.
-4. Edit the name and description of the task using the "edit" icon.
+```
+yarn <--- Install dependencies
+yarn start <--- Run Development server
+yarn build <--- Build Prodiction code
+yarn test <--- Test Project
+```
 
-# Demo:
+## Used Plugins
 
-### https://vercel.com/tntyyy/react-trello
+```
+babel (react, typescript)
+webpack-bundle-analyzer <--- analyzing js bundles
+fork-ts-checker-webpack-plugin <--- typechecking
+css (style-loader, css-loader, sass-loader) <--- CSS
+html (html-webpack-plugin)
+testing (jest, ts-jest, react-testing-library)
+hot reloading (react-refresh)
 
-#
-
-![Common view](https://i.ibb.co/B3SYgCw/image-2022-10-14-18-07-02.jpg)
-![One task](https://i.ibb.co/64hf3bF/image-2022-10-14-18-16-32.jpg)
-![Create task](https://i.ibb.co/V3TSSyS/image-2022-10-14-18-16-25.jpg)
+React: ^17.0.1
+Webpack: ^5.21.2
+```

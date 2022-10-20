@@ -47,8 +47,6 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
                           style={{
                               width: 16,
                               height: 16,
-                              WebkitFlexShrink: "0",
-                              flexShrink: "0",
                               backfaceVisibility: "hidden",
                           }}
                       >
@@ -66,8 +64,6 @@ const Board: FC<IBoard> = ({id, name, tasks}) => {
                           style={{
                               width: 16,
                               height: 16,
-                              WebkitFlexShrink: "0",
-                              flexShrink: "0",
                               backfaceVisibility: "hidden",
                           }}
                       >
