@@ -52,8 +52,6 @@ const Task: FC<ITask> = ({id, name, description, boardId}) => {
                       style={{
                           width: 16,
                           height: 16,
-                          WebkitFlexShrink: "0",
-                          flexShrink: "0",
                           backfaceVisibility: "hidden",
                       }}
                   >

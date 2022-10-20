@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "outDir": "./dist",
     "paths": {
       "@/*": ["./src/*"],
       "@utils": ["./src/utils/*"],
@@ -11,13 +16,18 @@
       "@assets": ["./src/assets/*"],
       "@constants": ["./src/constants/*"]
     },
-    "jsx": "react",
-    "allowJs": true,
-    "target": "ES2015",
-    "module": "commonjs",
+    "removeComments": true,
+    "noEmit": true,
     "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
